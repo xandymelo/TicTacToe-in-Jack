@@ -1,0 +1,39 @@
+class BackEnd {
+  field array bo;
+
+
+  constructor BackEnd new(){
+    return this;
+  }
+
+  method array construirtab() {
+    let bo = Array.new(10);
+    let bo[0] = 32; // 32 = " "
+    let bo[1] = 32;
+    let bo[2] = 32;
+    let bo[3] = 32;
+    let bo[4] = 32;
+    let bo[5] = 32;
+    let bo[6] = 32;
+    let bo[7] = 32; // 120 = "x"
+    let bo[8] = 32;
+    let bo[9] = 32; // 111 = "o"
+    return bo;
+  }
+  method int notvencedor(array bo, string letra2){
+    if(((bo[7] = letra2) & (bo[8] = letra2) & (bo[9] = letra2)) | ((bo[4] = letra2) & (bo[5] = letra2) & (bo[6] = letra2)) | ((bo[1] = letra2) & (bo[2] = letra2) & (bo[3] = letra2)) | ((bo[1] = letra2) & (bo[4] = letra2) & (bo[7] = letra2)) | ((bo[2] = letra2) & (bo[5] = letra2) & (bo[8] = letra2)) | ((bo[3] = letra2) & (bo[6] = letra2) & (bo[9] = letra2)) | ((bo[1] = letra2) & (bo[5] = letra2) & (bo[9] = letra2)) | ((bo[3] = letra2) & (bo[5] = letra2) & (bo[7] = letra2))) {
+      return 0;
+    }
+    else {
+      return 1;
+    }
+  }
+  method int tabuleironaocheio(array bo){
+    if ((bo[1] = 32) | (bo[2] = 32) | (bo[3] = 32) | (bo[4] = 32) | (bo[5] = 32) | (bo[6] = 32) | (bo[7] = 32) | (bo[8] = 32) | (bo[9] = 32)) {
+      return 1;
+    }
+    else {
+      return 0;
+    }
+  }
+}

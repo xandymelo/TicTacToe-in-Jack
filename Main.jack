@@ -1,0 +1,45 @@
+class Main {
+
+    function void main() {
+        var Tabuleiro tab;
+        var BackEnd b;
+        var int a;
+        var array tabval;
+        var int c;
+        var boolean aval;
+
+        //do tab.desenharx(100,70);
+        //do tab.desenharo(125,80);
+
+        let tab = Tabuleiro.new();
+        let b = BackEnd.new();
+        let tabval = b.construirtab();
+        let aval = true;
+        while (aval) {
+          if (b.notvencedor(tabval, 111) = 1) {
+            do tab.movimento(tabval, 120);
+          }
+          else {
+            do Output.printString("O jogador (O) venceu");
+            let aval = false;
+          }
+          if (aval) {
+          if (b.notvencedor(tabval,120) = 1) {
+            if (b.tabuleironaocheio(tabval) = 1) {
+              do tab.movimento(tabval, 111);
+            }
+            else {
+              do Output.printString("O jogo empatou");
+              let aval = false;
+            }
+
+          }
+          else {
+            do Output.printString("O jogador (x) venceu");
+            let aval = false;
+          }
+        }
+      }
+    return;
+    }
+}

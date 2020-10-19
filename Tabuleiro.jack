@@ -1,0 +1,181 @@
+class Tabuleiro {
+    field int a, b;
+
+    constructor Tabuleiro new() {
+      do desenhar();
+      return this;
+    }
+
+
+    method void desenhar() {
+        do Screen.setColor(true);
+        do Screen.drawLine(250, 50, 250, 200);
+        do Screen.drawLine(300, 50, 300, 200);
+        do Screen.drawLine(200, 100, 350, 100);
+        do Screen.drawLine(200, 150, 350, 150);
+        return;
+    }
+    method void desenharx(int a, int b) {
+      do Screen.setColor(true);
+      do Screen.drawLine(a, b, a + 40, b + 40);
+      do Screen.drawLine(a + 40, b, a, b + 40);
+      return;
+    }
+    method void desenharo(int a, int b) {
+        do Screen.setColor(true);
+        do Screen.drawCircle(a, b, 13);
+        do Screen.setColor(false);
+        do Screen.drawCircle(a, b, 11);
+        return;
+    }
+    method int movimento(array bo, string letra) {
+      do Output.printString(" 1 | 2 | 3");
+      do Output.moveCursor(2,1);
+      do Output.printString("----------");
+      do Output.moveCursor(4,1);
+      do Output.printString(" 4 | 5 | 6");
+      do Output.moveCursor(6,1);
+      do Output.printString("----------");
+      do Output.moveCursor(8,1);
+      do Output.printString(" 7 | 8 | 9");
+      do Output.moveCursor(20,1);
+      let a = tratarinput(letra);
+      if (letra = 120) {
+        //let a = Keyboard.readInt("Escolha o lugar da sua jogada (x):");
+
+        if (a = 1) {
+          do desenharx(200,50);
+          let bo[1] = 120;
+        }
+        if (a = 2) {
+          do desenharx(255, 50);
+          let bo[2] = 120;
+        }
+        if (a = 3) {
+          do desenharx(305, 50);
+          let bo[3] = 120;
+        }
+        if (a = 4) {
+          do desenharx(200,105);
+          let bo[4] = 120;
+        }
+        if (a = 5) {
+          do desenharx(255, 105);
+          let bo[5] = 120;
+        }
+        if (a = 6) {
+          do desenharx(305, 105);
+          let bo[6] = 120;
+        }
+        if (a = 7) {
+          do desenharx(200,155);
+          let bo[7] = 120;
+        }
+        if (a = 8) {
+          do desenharx(255, 155);
+          let bo[8] = 120;
+        }
+        if (a = 9) {
+          do desenharx(305, 155);
+          let bo[9] = 120;
+        }
+      }
+      else {
+        //let a = Keyboard.readInt("Escolha o lugar da sua jogada (o):");
+
+        if (a = 1) {
+          do desenharo(225,75);
+          let bo[1] = 111;
+        }
+        if (a = 2) {
+          do desenharo(275, 75);
+          let bo[2] = 111;
+        }
+        if (a = 3) {
+          do desenharo(325, 75);
+          let bo[3] = 111;
+        }
+        if (a = 4) {
+          do desenharo(225,125);
+          let bo[4] = 111;
+        }
+        if (a = 5) {
+          do desenharo(275, 125);
+          let bo[5] = 111;
+        }
+        if (a = 6) {
+          do desenharo(325, 125);
+          let bo[6] = 111;
+        }
+        if (a = 7) {
+          do desenharo(225,175);
+          let bo[7] = 111;
+        }
+        if (a = 8) {
+          do desenharo(275, 175);
+          let bo[8] = 111;
+        }
+        if (a = 9) {
+          do desenharo(325, 175);
+          let bo[9] = 111;
+        }
+      }
+      do limparlinha();
+      return a;
+
+    }
+    method void limparlinha() {
+      do Output.moveCursor(20,1);
+      do Output.moveCursor(20,2);
+      do Output.moveCursor(20,3);
+      do Output.moveCursor(20,4);
+      do Output.moveCursor(20,5);
+      do Output.moveCursor(20,6);
+      do Output.moveCursor(20,7);
+      do Output.moveCursor(20,9);
+      do Output.moveCursor(20,11);
+      do Output.moveCursor(20,12);
+      do Output.moveCursor(20,13);
+      do Output.moveCursor(20,14);
+      do Output.moveCursor(20,15);
+      do Output.moveCursor(20,17);
+      do Output.moveCursor(20,18);
+      do Output.moveCursor(20,20);
+      do Output.moveCursor(20,21);
+      do Output.moveCursor(20,22);
+      do Output.moveCursor(20,23);
+      do Output.moveCursor(20,24);
+      do Output.moveCursor(20,25);
+      do Output.moveCursor(20,26);
+      do Output.moveCursor(20,27);
+      do Output.moveCursor(20,28);
+      do Output.moveCursor(20,29);
+      do Output.moveCursor(20,30);
+      do Output.moveCursor(20,31);
+      do Output.moveCursor(20,32);
+      do Output.moveCursor(20,33);
+      do Output.moveCursor(20,34);
+      do Output.moveCursor(20,35);
+      do Output.moveCursor(20,1);
+      return;
+    }
+    method int tratarinput(char el) {
+      if (el = 120) {
+        let b = Keyboard.readInt("Escolha o lugar da sua jogada (x):");
+      }
+      else {
+        let b = Keyboard.readInt("Escolha o lugar da sua jogada (o):");
+      }
+      if ((b = 1) | (b = 2) | (b = 3) | (b = 4) | (b = 5) | (b = 6) | (b = 7) | (b = 8) | (b = 9)) {
+        return b;
+      }
+      else {
+        do limparlinha();
+        do Output.printString("Escolha um inteiro entre 0 e 10");
+        do Sys.wait(3000);
+        do limparlinha();
+        let b = tratarinput(el);
+        return b;
+      }
+    }
+}
